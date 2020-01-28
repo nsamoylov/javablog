@@ -50,13 +50,5 @@ public class S06_CreateUsingBuilder {
         List<String> sList = List.of("cat", "dog", "cow");
         String s = sList.stream().collect(Collectors.joining(", "));
         System.out.print(s);      //prints: cat, dog, cow
-
-        System.out.print("\n7: ");
-
-        System.out.print("\n8: ");
-
-        System.out.print("\n9: ");
-
-        System.out.print("\n10: ");
     }
 }
