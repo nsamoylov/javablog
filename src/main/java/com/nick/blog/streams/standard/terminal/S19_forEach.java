@@ -12,6 +12,7 @@ public class S19_forEach {
         System.out.print("\n2: ");
         Stream.of("1","2","3","4","5")
                 .parallel()
-                .forEach(System.out::print);      //prints: 34215  //depends on the particular system
+                .forEach(System.out::print);      //prints: 34215
+        // The processing order is unpredictable and depends on the executing system
     }
 }

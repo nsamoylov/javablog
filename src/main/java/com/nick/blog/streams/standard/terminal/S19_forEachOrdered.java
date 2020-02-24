@@ -11,6 +11,7 @@ public class S19_forEachOrdered {
         System.out.print("\n2: ");
         Stream.of("1","2","3","4","5")
                 .parallel()
-                .forEachOrdered(System.out::print);      //prints: 12345  //does not depend on the particular system
+                .forEachOrdered(System.out::print);      //prints: 12345
+        // The processing order is defined at the source and does not depend on the executing system
     }
 }
