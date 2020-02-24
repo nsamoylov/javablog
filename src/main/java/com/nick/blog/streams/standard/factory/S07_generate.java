@@ -1,22 +1,24 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.factory;
 
 import java.util.Random;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-public class S07_CreateUsingGenerate {
+public class S07_generate {
     public static void main(String... args) {
         System.out.print("1: ");
-        Stream<String> streamX = Stream.generate(new SupplierImpl());
-        streamX.limit(5).forEach(System.out::print);         //prints: xxxxx
+        Stream.generate(new SupplierImpl())
+                .limit(5)
+                .forEach(System.out::print);         //prints: xxxxx
 
         System.out.print("\n2: ");
-        Stream<String> streamX2 = Stream.generate(() -> "x");
-        streamX2.limit(5).forEach(System.out::print);   //prints: xxxxx
+        Stream.generate(() -> "x")
+                .limit(5)
+                .forEach(System.out::print);   //prints: xxxxx
 
         System.out.print("\n3: ");
-        Stream<Integer> stream = Stream.generate(new Random()::nextInt);
-        stream.limit(2)
+        Stream.generate(new Random()::nextInt)
+                .limit(2)
                 .map(i -> i.toString() + " ")
                 .forEach(System.out::print);  //prints: -1097315144 1639784147 (differs every run)
 
@@ -40,6 +42,17 @@ public class S07_CreateUsingGenerate {
         Stream.generate(DemoClass2::calculateString)
                 .limit(5)
                 .forEach(System.out::print);    //prints: 12345
+
+        Stream.generate(() -> calculateString())
+                .limit(5)
+                .forEach(System.out::print);    //prints: 12345
+
+        Stream.generate(new S07_generate()::calcString)
+                .limit(5)
+                .forEach(System.out::print);    //prints: 12345
+
+        new S07_generate().demo();             //prints: 12345
+
     }
 
     private static class SupplierImpl implements Supplier<String> {
@@ -68,4 +81,22 @@ public class S07_CreateUsingGenerate {
             return String.valueOf(count++);
         }
     }
+
+    private static int count = 1;
+    private static String calculateString(){
+        return String.valueOf(count++);
+    }
+
+    private String calcString(){
+        return String.valueOf(count++);
+    }
+
+    public void demo(){
+        Stream.generate(this::calcString)
+                .limit(5)
+                .forEach(System.out::print);
+
+    }
+
+
 }

@@ -1,11 +1,11 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.factory;
 
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-public class S05_CreateUsingOf {
+public class S05_of {
     public static void main(String... args) {
         System.out.print("1: ");
         Stream.of().forEach(System.out::print);         //prints:

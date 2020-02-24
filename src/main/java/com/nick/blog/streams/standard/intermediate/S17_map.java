@@ -1,8 +1,8 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.intermediate;
 
 import java.util.stream.Stream;
 
-public class S17_IntermediateMap {
+public class S17_map {
     public static void main(String... args){
         System.out.print("1: ");
         Stream.of("two", "four", "three")

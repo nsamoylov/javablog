@@ -1,4 +1,4 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.factory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-public class S06_CreateUsingBuilder {
+public class S06_Builder {
     public static void main(String... args) {
         System.out.print("1: ");
         List<String> strList = List.of("cat", "dog", "cow");

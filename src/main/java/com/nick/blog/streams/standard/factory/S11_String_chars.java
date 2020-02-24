@@ -1,10 +1,9 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.factory;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-public class S11_CreateFromString {
+public class S11_String_chars {
     public static void main(String... args) {
         System.out.print("1: ");
         IntStream intStream = "abc".chars();
@@ -47,16 +46,5 @@ public class S11_CreateFromString {
         System.out.print("\n10: ");
         supplString.chars().forEach(c -> System.out.println(Character.toChars(c))); //prints: ? ?
 
-        System.out.print("\n11: ");
-        supplString.codePoints().forEach(System.out::print);     //prints: 128512
-
-        System.out.print("\n12: ");
-        supplString.codePoints().forEach(c -> System.out.print((char)c));  //prints: 
-
-        System.out.print("\n13: ");
-        supplString.codePoints().forEach(c -> System.out.print(Character.toChars(c))); //prints: 😀
-
-        System.out.println("\n14: ");
-        Stream<String> linesStream = "Once\nupon\ra\r\ntime".lines();
-        linesStream.forEach(System.out::println);    }
+    }
 }

@@ -1,8 +1,8 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.factory;
 
 import java.util.stream.Stream;
 
-public class S08_CreateUsingIterate {
+public class S08_iterate {
     public static void main(String... args) {
         System.out.print("1: ");
         Stream<Integer> stream1 = Stream.iterate(3, i -> i + 2);

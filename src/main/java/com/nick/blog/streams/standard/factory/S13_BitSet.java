@@ -1,12 +1,8 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.factory;
 
-import java.io.File;
-import java.nio.file.Path;
 import java.util.BitSet;
-import java.util.jar.JarFile;
-import java.util.regex.Pattern;
 
-public class S13_CreateUsingBitSetJarFilePattern {
+public class S13_BitSet {
     public static void main(String... args) {
         System.out.println("1: ");
         BitSet bs = new BitSet();
@@ -52,20 +48,6 @@ public class S13_CreateUsingBitSetJarFilePattern {
         bs.set(7);
         System.out.println(bs);                 //prints: {3, 7, 9}
         bs.stream().forEach(System.out::print); //prints: 379
-
-        System.out.println("\n\n4: ");
-        Path path = Path.of("src", "main", "resources", "javablog-1.0.jar");
-        File file = new File(path.toString());
-        try (JarFile jf = new JarFile(file)){
-            jf.stream().forEach(System.out::println);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("\n5: ");
-        Pattern pattern = Pattern.compile("[\\,\\.\\-]");
-        pattern.splitAsStream("one-two,three.four")
-                .forEach(System.out::println);
     }
 
     private static void printFourBits(BitSet bs) {

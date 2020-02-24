@@ -1,4 +1,4 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.intermediate;
 
 import java.util.Arrays;
 import java.util.stream.DoubleStream;
@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-public class S18_IntermediateFlatMap {
+public class S18_flatMap {
     public static void main(String... args){
         System.out.print("1: ");
         Stream.of("one", "two", "three")

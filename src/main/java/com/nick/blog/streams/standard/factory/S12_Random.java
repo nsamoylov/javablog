@@ -1,8 +1,8 @@
-package com.nick.blog.streams.standard;
+package com.nick.blog.streams.standard.factory;
 
 import java.util.Random;
 
-public class S12_CreateUsingRandom {
+public class S12_Random {
     public static void main(String... args) {
         System.out.print("1: ");
         new Random().ints()
