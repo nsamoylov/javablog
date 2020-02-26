@@ -6,7 +6,7 @@ import java.util.jar.JarFile;
 
 public class S13_JarFile {
     public static void main(String... args) {
-        System.out.println("1: ");
+
         Path path = Path.of("src", "main", "resources", "javablog-1.0.jar");
         File file = new File(path.toString());
         try (JarFile jf = new JarFile(file)) {

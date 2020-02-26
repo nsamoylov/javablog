@@ -4,7 +4,7 @@ import java.util.stream.Stream;
 
 public class S17_mapToLong {
     public static void main(String... args){
-        System.out.print("1: ");
+
         Stream.of("two", "four", "three")
                 .mapToLong(s -> s.length() * 2)
                 .forEach(System.out::println);  //prints: 6

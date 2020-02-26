@@ -5,7 +5,7 @@ import java.util.List;
 
 public class S04_collections {
     public static void main(String... args) {
-        System.out.print("1: ");
+
         List.of("one","two","three","four","five")
                 .stream()
                 .map(s -> s.length())

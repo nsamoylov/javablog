@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 
 public class S18_flatMapToDouble {
     public static void main(String... args){
-        System.out.print("1: ");
+
         Stream.of("one", "two", "three")
                 .flatMapToDouble(s -> {
                     double[] arr = new double[s.length()];

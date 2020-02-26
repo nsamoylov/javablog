@@ -8,7 +8,6 @@ public class S19_forEach {
         Stream.of("1","2","3","4","5")
                 .forEach(System.out::print);      //prints: 12345
 
-
         System.out.print("\n2: ");
         Stream.of("1","2","3","4","5")
                 .parallel()
