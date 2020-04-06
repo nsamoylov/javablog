@@ -8,8 +8,10 @@ public class x01_Factory_of {
         System.out.print("Optional.of(\"1\"): ");
         System.out.println(opt1.get());            //prints: 1
 
-        Optional<String> opt2 = Optional.of(null); //throws NullPointerException
-        System.out.print("\nOptional.of(null): ");
-        System.out.println(opt2.get());
+        try{
+            Optional<String> opt2 = Optional.of(null);
+        } catch(Exception ex){
+            System.out.println(ex.getClass().getSimpleName()); //prints: NullPointerException
+        }
    }
 }
