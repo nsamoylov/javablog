@@ -24,17 +24,29 @@ public class S22_max {
         System.out.print(max3);                //prints: -100
 
         System.out.print("\n4: ");
-        Box max4 = Stream.of(new Box(5, "red"), new Box(8, "green"), new Box(3, "blue"))
+        Box max4 = Stream.of(new Box(5, "red"),
+                            new Box(8, "green"),
+                            new Box(3, "blue"))
                 .sorted(Comparator.naturalOrder())
                 .findFirst()
                 .get();
         System.out.print(max4);                //prints: Box{weight=3, color='blue'}
 
         System.out.print("\n5: ");
-        Box max5 = Stream.of(new Box(5, "red"), new Box(8, "green"), new Box(3, "blue"))
-                .max(Comparator.comparingInt(b -> b.weight))
+        Box max5 = Stream.of(new Box(5, "red"),
+                            new Box(8, "green"),
+                            new Box(3, "blue"))
+                .max(Comparator.comparing(Box::getWeight))
                 .get();
         System.out.print(max5);                //prints: Box{weight=8, color='green'}
+
+        System.out.print("\n6: ");
+        Box max6 = Stream.of(new Box(5, "red"),
+                            new Box(8, "green"),
+                            new Box(3, "blue"))
+                .max(Comparator.comparingInt(Box::getWeight))   //without boxing/unboxing
+                .get();
+        System.out.print(max6);                //prints: Box{weight=8, color='green'}
     }
 
     private static class Box implements Comparable<Box>{
@@ -45,6 +57,8 @@ public class S22_max {
             this.weight = weight;
             this.color = color;
         }
+
+        public int getWeight() { return weight; }
 
         @Override
         public int compareTo(Box otherBox) {
