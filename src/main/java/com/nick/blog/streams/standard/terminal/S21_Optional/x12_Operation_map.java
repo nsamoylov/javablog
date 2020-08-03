@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class x12_Operation_map {
     public static void main(String... args){
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         int v1 = Optional.of("abc")
                 .map(s -> s.length())
                 .orElse(42);

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class x11_Operation_filter {
     public static void main(String... args){
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         String v1 = Optional.of("1")
                 .filter(s -> s.equals("1"))
                 .or(() -> Optional.of("42"))

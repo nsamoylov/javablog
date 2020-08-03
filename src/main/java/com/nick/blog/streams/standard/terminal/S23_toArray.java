@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class S23_toArray {
     public static void main(String... args) {
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         Object[] res1 = Stream.of("a", "b", "c")
                 .map(String::toUpperCase)
                 .toArray();

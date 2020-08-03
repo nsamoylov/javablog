@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 public class x10_Operation_ifPresentOrElse {
     public static void main(String... args){
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         Optional.of("1")
                 .ifPresentOrElse(
                         System.out::print,

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class x06_Operation_orElse {
     public static void main(String... args){
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         String result1 = Optional.of("1")
                 .orElse("42");
         System.out.print(result1);           //prints: 1

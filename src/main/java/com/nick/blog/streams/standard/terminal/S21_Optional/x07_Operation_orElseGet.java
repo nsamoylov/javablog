@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 
 public class x07_Operation_orElseGet {
     public static void main(String... args) {
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         String result1 = Optional.of("1")
                 .orElseGet(() -> "42");
         System.out.print(result1);           //prints: 1

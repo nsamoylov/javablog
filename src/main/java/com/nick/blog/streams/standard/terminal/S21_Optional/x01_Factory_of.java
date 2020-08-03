@@ -5,7 +5,7 @@ import java.util.Optional;
 public class x01_Factory_of {
     public static void main(String... args){
         Optional<String> opt1 = Optional.of("1");
-        System.out.print("Optional.of(\"1\"): ");
+        System.out.print("\nOptional.of(\"1\"): ");
         System.out.println(opt1.get());            //prints: 1
 
         try{

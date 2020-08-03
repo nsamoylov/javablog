@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 
 public class x08_Operation_orElseThrow {
     public static void main(String... args){
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         try {
             String result = Optional.of("1")
                     .orElseThrow();

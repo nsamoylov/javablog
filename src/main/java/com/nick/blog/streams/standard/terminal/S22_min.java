@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 
 public class S22_min {
     public static void main(String... args) {
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         String min1 = Stream.of("a", "b", "c", "c", "a")
                 .min(Comparator.naturalOrder())
                 .get();

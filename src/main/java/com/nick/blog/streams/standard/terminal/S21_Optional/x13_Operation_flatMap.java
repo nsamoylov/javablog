@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class x13_Operation_flatMap {
     public static void main(String... args){
-        System.out.print("1: ");
+        System.out.print("\n1: ");
         int v3 = Optional.of(Optional.of("abc"))
                 .flatMap(o -> Optional.of(o.get().length()))
                 .orElse(42);

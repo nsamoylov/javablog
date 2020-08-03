@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class x04_Properties {
     public static void main(String... args){
-        System.out.print("Optional.of(\"1\"): ");
+        System.out.print("\nOptional.of(\"1\"): ");
         Optional<String> opt1 = Optional.of("1");
         System.out.print("\n  .get(): ");
         System.out.print(opt1.get());          //prints: 1

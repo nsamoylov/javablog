@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class x05_Operation_or {
     public static void main(String... args){
-       System.out.print("1: ");
+       System.out.print("\n1: ");
        Optional<String> opt1 = Optional.of("1")
                        .or(() -> Optional.of("42"));
         System.out.print("\n  .get(): ");
