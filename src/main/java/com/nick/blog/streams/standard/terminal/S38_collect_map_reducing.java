@@ -29,11 +29,11 @@ public class S38_collect_map_reducing {
         Map<String, List<Person>> map31 = list.stream()
                 .collect(Collectors.groupingBy(Person::getCity));
         System.out.print(map31);  //prints: {Chicago=[Person{name='Bob', city='Chicago', age=24}],
-                                   //          Denver=[Person{name='John', city='Denver', age=25},
-                                   //                  Person{name='Jane', city='Denver', age=24},
-                                   //                  Person{name='Bob', city='Denver', age=23}],
-                                   //          Boston=[Person{name='Bill', city='Boston', age=25},
-                                   //                  Person{name='Jill', city='Boston', age=23}]}
+                                   //         Denver=[Person{name='John', city='Denver', age=25},
+                                   //                 Person{name='Jane', city='Denver', age=24},
+                                   //                 Person{name='Bob', city='Denver', age=23}],
+                                   //         Boston=[Person{name='Bill', city='Boston', age=25},
+                                   //                 Person{name='Jill', city='Boston', age=23}]}
 
         System.out.print("\n3.partitioningBy(isDenver): ");
         Map<Boolean, List<Person>> map32 = list.stream()
