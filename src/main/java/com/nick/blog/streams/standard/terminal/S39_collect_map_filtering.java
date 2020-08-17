@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class S39_collect_map_filtering {
+public class S39_collect_map_filtering {  //since Java 9
     public static void main(String... args) {
         List<Person> list = List.of(new Person("John", "Denver", 25),
                                     new Person("Jane", "Denver", 24),
