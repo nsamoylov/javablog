@@ -56,12 +56,29 @@ public class S40_collect_toUnmodifiable {  //since Java 10
         } catch (InterruptedException e) {}
 
         System.out.print("\n4.toUnmodifiableMap(): ");
-        Map<String, Integer> map4= Stream.of("cat", "cat", "fish")
-                .collect(Collectors.toUnmodifiableMap(Function.identity(), String::length, (i1,i2) -> i1 == i2 ? i1 : i2 ));
+        Map<String, Integer> map4 = Stream.of("cat", "cat", "fish")
+                .distinct()
+                .collect(Collectors.toUnmodifiableMap(Function.identity(), String::length));
         System.out.println(map4);        //prints: {cat=3, fish=4}
         System.out.println(map4.getClass().getName()); //prints: java.util.ImmutableCollections$MapN
         try {
             map4.put("c", 1);  //prints: UnsupportedOperationException
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        try {
+            //To allow exception stacktrace to be printed before the next System.out
+            TimeUnit.MILLISECONDS.sleep(100);
+        } catch (InterruptedException e) {}
+
+        System.out.print("\n5.toUnmodifiableMap(): ");
+        Map<String, Integer> map5 = Stream.of("cat", "cat", "fish")
+                .collect(Collectors.toUnmodifiableMap(Function.identity(), String::length, (i1,i2) -> i1 == i2 ? i1 : i2 ));
+        System.out.println(map5);        //prints: {cat=3, fish=4}
+        System.out.println(map4.getClass().getName()); //prints: java.util.ImmutableCollections$MapN
+        try {
+            map5.put("c", 1);  //prints: UnsupportedOperationException
         } catch (Exception ex){
             ex.printStackTrace();
         }
