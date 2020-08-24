@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class S29_collect_joining {
     public static void main(String... args) {
-        System.out.print("\n1.join: ");
+        System.out.print("\n1.StringJoiner: ");
         StringJoiner joiner = new StringJoiner(", ").add("cat").add("fish").add("dog");
         System.out.print(joiner);       //prints: cat, fish, dog
 
