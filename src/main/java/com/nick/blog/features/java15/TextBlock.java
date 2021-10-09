@@ -1,6 +1,6 @@
-package com.nick.blog.features;
+package com.nick.blog.features.java15;
 
-public class Java15 {
+public class TextBlock {
     public static void main(String... args){
         System.out.print("1:\n");
         textBlockHtml("nicksamoylov");
@@ -16,9 +16,6 @@ public class Java15 {
 
         System.out.print("\n5:\n");
         textBlockFormattedSpace2();
-
-        System.out.print("\n6:\n");
-        nullPointerException();
     }
 
     private static final String TEXT_BLOCK_HTML = """
@@ -79,41 +76,5 @@ public class Java15 {
         if(!TEXT_BLOCK_FORMATTED_SPACE2.equals(resultingString)){
             throw new RuntimeException("The resulting string is not equal the expected: " + resultingString);
         }
-    }
-
-    private static void nullPointerException(){
-        SomeClass someClass = new SomeClass(new MyClass01(null));
-        someClass.getSomeName();
-    }
-
-    private static class SomeClass {
-        private MyClass01 myClass01;
-
-        public SomeClass(MyClass01 myClass01) {
-            this.myClass01 = myClass01;
-        }
-
-        public String getSomeName() { return this.myClass01.getMyClass02Object().getSomeName(); };
-    }
-
-    private static class MyClass01 {
-        private MyClass02 myClass02;
-
-        public MyClass01(MyClass02 myClass02) {
-            this.myClass02 = myClass02;
-        }
-
-        public MyClass02 getMyClass02Object() { return this.myClass02; };
-    }
-
-    private static class MyClass02 {
-        private String someName;
-
-        public MyClass02(String someName) {
-            this.someName = someName;
-        }
-
-        public String getSomeName() { return this.someName; }
-
     }
 }

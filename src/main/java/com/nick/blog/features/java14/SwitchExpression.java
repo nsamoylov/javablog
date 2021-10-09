@@ -1,16 +1,19 @@
-package com.nick.blog.features;
+package com.nick.blog.features.java14;
 
-public class Java14 {
+public class SwitchExpression {
     public static void main(String... args){
         System.out.print("1: ");
         switchExpression1(TWO);            //prints: 1
+
         System.out.print("\n2: ");
         switchExpression1(FOUR);           //prints: 2
+
         System.out.print("\n3: ");
         switchExpression1("blah"); //prints: 3
 
         System.out.print("\n4: ");
         switchExpression2(Num.TWO);        //prints: 1
+
         System.out.print("\n5: ");
         switchExpression2(Num.FOUR);       //prints: 2
 
@@ -18,6 +21,7 @@ public class Java14 {
 
         System.out.print("\n6: ");
         switchExpression3(Num.TWO);        //prints: 1
+
         System.out.print("\n7: ");
         switchExpression3(Num.THREE);      //prints: 5
     }
