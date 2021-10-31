@@ -1,63 +1,69 @@
-package com.nick.blog.features.java16;
+package com.nick.blog.features.java17;
 
-import java.util.Objects;
-
-public class Record {
+public class SealedClass {
     public static void main(String... args) {
-        Person person = new Person(25, "Bill", "Smith");
-        System.out.println(person);  //prints: Person{age=25, firstName='Bill', lastName='Smith'}
-        System.out.println(person.getFirstName());  //prints: Bill
-
-        Person person1 = new Person(25, "Bill", "Smith");
-        System.out.println(person.equals(person1)); //prints: true
-
-        PersonR personR = new PersonR(25, "Bill", "Smith");
-        System.out.println(personR);   //prints: PersonR{age=25, firstName='Bill', lastName='Smith'}
-        System.out.println(personR.firstName());      //prints: Bill
-
-        PersonR personR1 = new PersonR(25, "Bill", "Smith");
-        System.out.println(personR.equals(personR1)); //prints: true
-
-        System.out.println(personR.equals(person));   //prints: false
     }
 
-    private record PersonR(int age, String firstName, String lastName){}
-
-    private static final class Person{
-        private int age;
-        private String firstName, lastName;
-
-        public Person(int age, String firstName, String lastName) {
-            this.age = age;
-            this.firstName = firstName;
-            this.lastName = lastName;
-        }
-
-        public int getAge() { return age; }
-        public String getLastName() { return lastName; }
-        public String getFirstName() { return firstName; }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Person person = (Person) o;
-            return age == person.age && Objects.equals(firstName, person.firstName)
-                    && Objects.equals(lastName, person.lastName);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(age, firstName, lastName);
-        }
-
-        @Override
-        public String toString() {
-            return "Person{" +
-                    "age=" + age +
-                    ", firstName='" + firstName + '\'' +
-                    ", lastName='" + lastName + '\'' +
-                    '}';
-        }
+    private sealed interface Engine permits EngineBrand, Vehicle {
+        int getHorsePower();
     }
+
+    private sealed class Vehicle implements Engine permits Car, Suv, Truck, Tractor {
+        private final String make, model;
+        private final int horsePower, price;
+        public Vehicle(String make, String model, int horsePower, int price) {
+            this.make = make;
+            this.model = model;
+            this.price = price;
+            this.horsePower = horsePower;
+        }
+        public String getMake() { return make; }
+        public String getModel() { return model; }
+        public int getHorsePower() { return horsePower; }
+        public int getPrice() { return price; }
+    }
+
+    private final class Car extends Vehicle {
+        private final int passangersCount;
+        public Car(String make, String model, int horsePower, int price, int passangersCount) {
+            super(make, model, horsePower, price);
+            this.passangersCount = passangersCount;
+        }
+        public int getPassangersCount() { return passangersCount; }
+    }
+
+    private final class Suv extends Vehicle {
+        private final int passangersCount, payloadPounds;
+        public Suv(String make, String model, int horsePower, int price, int passangersCount, int payloadPounds) {
+            super(make, model, horsePower, price);
+            this.payloadPounds = payloadPounds;
+            this.passangersCount = passangersCount;
+        }
+        public int getPayloadPounds() { return payloadPounds; }
+        public int getPassangersCount() { return passangersCount; }
+    }
+
+    private final class Truck extends Vehicle {
+        private final int payloadPounds;
+        public Truck(String make, String model, int horsePower, int price, int payloadPounds) {
+            super(make, model, horsePower, price);
+            this.payloadPounds = payloadPounds;
+        }
+        public int getPayloadPounds() { return payloadPounds; }
+    }
+
+    private final class Tractor extends Vehicle {
+        private final int pullPower;
+        public Tractor (String make, String model, int horsePower, int price, int pullPower) {
+            super(make, model, horsePower, price);
+            this.pullPower = pullPower;
+        }
+        public int getPullPower() { return pullPower; }
+    }
+
+    private non-sealed interface EngineBrand extends Engine {
+        String getBrand();
+    }
+
+
 }

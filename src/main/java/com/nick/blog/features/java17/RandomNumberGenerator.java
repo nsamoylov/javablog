@@ -1,46 +1,24 @@
 package com.nick.blog.features.java17;
 
 import java.util.Objects;
+import java.util.random.RandomGeneratorFactory;
 
-public class SealedClass {
+public class RandomNumberGenerator {
     public static void main(String... args) {
-    }
-
-    private static final class Person{
-        private int age;
-        private String firstName, lastName;
-
-        public Person(int age, String firstName, String lastName) {
-            this.age = age;
-            this.firstName = firstName;
-            this.lastName = lastName;
-        }
-
-        public int getAge() { return age; }
-        public String getLastName() { return lastName; }
-        public String getFirstName() { return firstName; }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Person person = (Person) o;
-            return age == person.age && Objects.equals(firstName, person.firstName)
-                    && Objects.equals(lastName, person.lastName);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(age, firstName, lastName);
-        }
-
-        @Override
-        public String toString() {
-            return "Person{" +
-                    "age=" + age +
-                    ", firstName='" + firstName + '\'' +
-                    ", lastName='" + lastName + '\'' +
-                    '}';
-        }
+        RandomGeneratorFactory.all()
+            .map(fac -> fac.group()+":"+fac.name()
+                + " {"
+                + (fac.isSplittable()?" splitable":"")
+                + (fac.isStreamable()?" streamable":"")
+                + (fac.isJumpable()?" jumpable":"")
+                + (fac.isArbitrarilyJumpable()?" arbitrary-jumpable":"")
+                + (fac.isLeapable()?" leapable":"")
+                + (fac.isHardware()?" hardware":"")
+                + (fac.isStatistical()?" statistical":"")
+                + (fac.isStochastic()?" stochastic":"")
+                + " stateBits: "+fac.stateBits()
+                + " }"
+            )
+            .sorted().forEach(System.out::println);
     }
 }
