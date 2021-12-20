@@ -1,7 +1,5 @@
 package com.nick.blog.features.java16;
 
-import java.util.Objects;
-
 public class InstanceOfPatternMatching {
     public static void main(String... args) {
         Object obj = new Person(25, "Bill", "Smith");

@@ -1,6 +1,5 @@
 package com.nick.blog.features.java17;
 
-import java.util.Objects;
 import java.util.random.RandomGeneratorFactory;
 
 public class RandomNumberGenerator {
