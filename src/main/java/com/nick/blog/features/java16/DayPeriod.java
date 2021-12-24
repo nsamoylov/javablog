@@ -7,15 +7,15 @@ import java.time.format.DateTimeFormatter;
 public class DayPeriod {
     public static void main(String... args){
         System.out.print("1: ");
-        periodOfDayFromDateTime("2022-03-23T05:05:18.123456", "MM-dd-yyyy h a");
-                                                                     //prints: 03-23-2022 5 AM
+        periodOfDayFromDateTime("2023-03-23T05:05:18.123456", "MM-dd-yyyy h a");
+                                                                     //prints: 03-23-2023 5 AM
 
         System.out.print("\n2: ");
-        periodOfDayFromDateTime("2021-03-23T05:05:18.123456", "MM-dd-yyyy h B");
-                                                               //prints: 03-23-2022 5 at night
+        periodOfDayFromDateTime("2023-03-23T05:05:18.123456", "MM-dd-yyyy h B");
+                                                               //prints: 03-23-2023 5 at night
 
         System.out.print("\n3: ");
-        periodOfDayFromDateTime("2021-03-23T06:05:18.123456", "h B");
+        periodOfDayFromDateTime("2023-03-23T06:05:18.123456", "h B");
                                                                      //prints: 6 in the morning
 
         System.out.print("\n4: ");
